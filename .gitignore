@@ -1,0 +1,19 @@
+# Ignore everything not necessary
+*
+
+# Yours truly
+!.gitignore
+
+# zsh config
+!/zsh
+!/zsh/**
+
+# nvim config
+!/nvim
+!/nvim/**
+/nvim/lua/.luarc.json
+nvim/plugin/packer_compiled.lua
+
+# tmux config
+!/tmux
+!/tmux/**
