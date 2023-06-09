@@ -1,4 +1,6 @@
-require("neotest").setup({
+local neotest = require("neotest")
+
+neotest.setup({
     adapters = {
         require("neotest-go")({
             experimental = {
@@ -10,10 +12,15 @@ require("neotest").setup({
 })
 
 local function run_all()
-    require("neotest").run.run(vim.fn.expand("%"))
+    neotest.run.run(vim.fn.expand("%"))
 end
 
-vim.keymap.set('n', '<leader>to', require("neotest").summary.toggle)
-vim.keymap.set('n', '<leader>tr', require('neotest').run.run)
+local function debug()
+    neotest.run.run({ strategy = "dap" })
+end
+
+vim.keymap.set('n', '<leader>to', neotest.summary.toggle)
+vim.keymap.set('n', '<leader>tr', neotest.run.run)
+vim.keymap.set('n', '<leader>td', debug)
 vim.keymap.set('n', '<leader>tf', run_all)
-vim.keymap.set('n', '<leader>ts', require('neotest').run.stop)
+vim.keymap.set('n', '<leader>ts', neotest.run.stop)
