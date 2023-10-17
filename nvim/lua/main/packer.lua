@@ -39,7 +39,10 @@ return require("packer").startup(function(use)
     use "numToStr/Comment.nvim"
     use "github/copilot.vim"
     use "tpope/vim-fugitive"
-    use "j-hui/fidget.nvim"
+    use {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+    }
     use "lewis6991/gitsigns.nvim"
     use "olexsmir/gopher.nvim"
     use {
@@ -58,4 +61,5 @@ return require("packer").startup(function(use)
     use "HiPhish/nvim-ts-rainbow2"
     use "nvim-tree/nvim-web-devicons"
     use "nvim-lualine/lualine.nvim"
+    use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end }
 end)
