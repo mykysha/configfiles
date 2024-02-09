@@ -58,7 +58,7 @@ return require("packer").startup(function(use)
     -- Points for style:
     use { "catppuccin/nvim", as = "catppuccin" }
     use "lukas-reineke/indent-blankline.nvim"
-    use "HiPhish/nvim-ts-rainbow2"
+    -- check rainbow-delimeters.nvim
     use "nvim-tree/nvim-web-devicons"
     use "nvim-lualine/lualine.nvim"
     use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end }
