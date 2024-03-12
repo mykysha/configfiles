@@ -21,6 +21,6 @@ end
 
 vim.keymap.set('n', '<leader>to', neotest.summary.toggle)
 vim.keymap.set('n', '<leader>tr', neotest.run.run)
-vim.keymap.set('n', '<leader>td', debug)
+vim.keymap.set('n', '<leader>td', require('dap-go').debug_test)
 vim.keymap.set('n', '<leader>tf', run_all)
 vim.keymap.set('n', '<leader>ts', neotest.run.stop)
