@@ -51,4 +51,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
-echo "typeset -aU PATH"
+path+="$HOME/go/bin"
+
+typeset -U path
+
