@@ -42,15 +42,15 @@ return require("packer").startup(function(use)
     use "leoluz/nvim-dap-go"
     use "simrat39/rust-tools.nvim"
     use "nvim-telescope/telescope-dap.nvim"
-    use "folke/trouble.nvim"
+    use {
+        "folke/trouble.nvim",
+        tag = "v2.10.0"
+    }
     use "nvim-treesitter/nvim-treesitter-context"
     use "numToStr/Comment.nvim"
     use "github/copilot.vim"
     use "tpope/vim-fugitive"
-    use {
-        "j-hui/fidget.nvim",
-        tag = "legacy",
-    }
+    use "linrongbin16/lsp-progress.nvim"
     use "lewis6991/gitsigns.nvim"
     use "olexsmir/gopher.nvim"
     use {
