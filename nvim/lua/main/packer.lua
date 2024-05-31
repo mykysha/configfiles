@@ -28,7 +28,12 @@ return require("packer").startup(function(use)
     use { "nvim-telescope/telescope.nvim", branch = "0.1.x" }
     use "nvim-lua/plenary.nvim"
     use "mfussenegger/nvim-dap"
-    use "rcarriga/nvim-dap-ui"
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {
+            "nvim-neotest/nvim-nio",
+        }
+    }
     use "theHamsta/nvim-dap-virtual-text"
     use "jay-babu/mason-nvim-dap.nvim"
     use "leoluz/nvim-dap-go"
