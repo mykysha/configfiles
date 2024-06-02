@@ -15,11 +15,20 @@ return {
         },
     },
     config = function()
-        local lsp = require('lsp-zero').preset({})
-        require("mason").setup()
+        local lsp_zero = require('lsp-zero')
 
-        lsp.on_attach(function(client, bufnr)
-            lsp.default_keymaps({ buffer = bufnr })
+        require('mason').setup({})
+        require('mason-lspconfig').setup({
+            ensure_installed = { 'gopls', 'lua-language-server', 'delve' },
+            handlers = {
+                function(server_name)
+                    require('lspconfig')[server_name].setup({})
+                end,
+            }
+        })
+
+        lsp_zero.on_attach(function(client, bufnr)
+            lsp_zero.default_keymaps({ buffer = bufnr })
 
             if client.server_capabilities.documentHighlightProvider then
                 vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
@@ -39,11 +48,8 @@ return {
             end
         end)
 
-        -- (Optional) Configure lua language server for neovim
-        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
         vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
-        lsp.setup()
+        lsp_zero.setup()
     end
 }
