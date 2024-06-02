@@ -19,7 +19,7 @@ return {
 
         require('mason').setup({})
         require('mason-lspconfig').setup({
-            ensure_installed = { 'gopls', 'lua-language-server', 'delve' },
+            ensure_installed = { 'gopls', 'lua_ls' },
             handlers = {
                 function(server_name)
                     require('lspconfig')[server_name].setup({})
