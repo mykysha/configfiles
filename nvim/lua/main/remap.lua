@@ -26,3 +26,5 @@ vim.keymap.set("n", "<leader>gu", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+
+vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help)
