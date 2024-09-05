@@ -19,7 +19,7 @@ return {
                     theme = "dropdown",
                     file_ignore_patterns = { "go.sum", ".git" },
                     additional_args = function(opts)
-                        return { "--hidden" }
+                        return { "--hidden", "--no-ignore-vcs" }
                     end
                 },
                 buffers = {
