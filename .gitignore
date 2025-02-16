@@ -18,5 +18,9 @@ nvim/lazy-lock.json
 !/tmux
 !/tmux/**
 
+# ghostty config
+!/ghostty
+!/ghostty/**
+
 # Mac specific
 .DS_Store
