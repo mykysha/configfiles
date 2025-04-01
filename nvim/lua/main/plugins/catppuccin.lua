@@ -4,7 +4,7 @@ return {
     config = function()
         require("catppuccin").setup({
             flavour = "macchiato", -- latte, frappe, macchiato, mocha
-            transparent_background = false,
+            transparent_background = true,
             show_end_of_buffer = true,
             integrations = {
                 cmp = true,
@@ -23,7 +23,3 @@ return {
         vim.cmd.colorscheme "catppuccin"
     end
 }
-
--- Uncomment if want to use transparent background.
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

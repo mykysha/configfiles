@@ -1,0 +1,27 @@
+let mapleader = " "
+
+set nu
+set rnu
+
+set scrolloff=10
+
+set cursorline
+set colorcolumn=80,120
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+set ideajoin
+set NERDTree
+set multiple-cursors
+set commentary
+set highlightedyank
+set quickscope
+
+nnoremap <leader>y \"+y
+nnoremap <leader>rn :action RenameElement<CR>
+
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+
+nnoremap <leader>ex :NERDTreeToggle<CR>

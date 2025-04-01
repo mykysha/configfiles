@@ -4,7 +4,7 @@ font-family = "MesloLGMDZ Nerd Font Mono"
 
 theme = "catppuccin-macchiato"
 
-background-opacity = 0.7
+background-opacity = 0.9
 background-blur-radius = 0
 
 window-height = 51
