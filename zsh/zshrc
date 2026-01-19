@@ -3,12 +3,17 @@ export ZSH="$HOME/.oh-my-zsh"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+export PATH=/opt/homebrew/bin:$PATH
+export SED=/opt/homebrew/opt/gnu-sed/libexec/gnubin/sed
+
+export TERM="xterm-ghostty"
+
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="eastwood"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 ENABLE_CORRECTION="true"
 
@@ -38,20 +43,19 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/antigen.zsh
-
 alias ls='ls -C -F -G'
 alias ll='ls -l'
 alias la='ls -a'
 
-alias zrc='cd ~ && nvim .zshrc'
+alias zrc='cd ~/.config/zsh && nvim zshrc'
 alias nrc='cd ~/.config/nvim && nvim init.lua'
 alias codef='cd ~/Code'
 
-source ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
+alias colimin='colima start --cpu=4 --memory=2'
+alias colimid='colima start --cpu=8 --memory=4'
+alias colimax='colima start --cpu=8 --memory=8'
 
-antigen apply
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 path+="$HOME/go/bin"
 

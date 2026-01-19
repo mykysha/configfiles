@@ -20,6 +20,7 @@ vim.opt.termguicolors = true
 vim.opt.cmdheight = 0
 
 vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
 
 vim.opt.colorcolumn = "80,120"
 

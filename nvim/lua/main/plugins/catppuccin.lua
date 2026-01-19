@@ -6,6 +6,9 @@ return {
             flavour = "macchiato", -- latte, frappe, macchiato, mocha
             transparent_background = true,
             show_end_of_buffer = true,
+            float = {
+                transparent = true,
+            },
             integrations = {
                 cmp = true,
                 indent_blankline = {
@@ -14,7 +17,9 @@ return {
                 },
                 lsp_trouble = true,
                 mason = true,
-                telescope = true,
+                telescope = {
+                    enabled = true,
+                },
                 treesitter = true,
                 ts_rainbow2 = true,
             },
