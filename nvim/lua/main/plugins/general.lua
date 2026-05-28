@@ -12,7 +12,9 @@ return {
     },
     {
         "folke/trouble.nvim",
-        opts = {},
+        opts = {
+            restore = false,
+        },
         cmd = "Trouble",
         keys = {
             {

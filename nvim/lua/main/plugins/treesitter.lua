@@ -1,33 +1,43 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+        indent = { enable = true },
+        highlight = { enable = true },
+        folds = { enable = true },
+        ensure_installed = { "go", "rust", "dockerfile", "gitignore",
+            "gomod", "gosum", "gowork", "make", "sql", "toml", "yaml",
+            "c", "lua", "vim", "vimdoc", "query" },
     },
     config = function()
-        require 'nvim-treesitter.configs'.setup {
-            -- A list of parser names, or "all" (the last five listed parsers should always be installed)
-            ensure_installed = { "go", "rust", "dockerfile", "gitignore",
-                "gomod", "gosum", "gowork", "make", "sql", "toml", "yaml",
-                "c", "lua", "vim", "vimdoc", "query" },
+        vim.api.nvim_create_autocmd("FileType", {
+            -- This will make TS install parser for each new filetype you open.
+            -- If you want only specific filetypes, change `{ "*" }` to a list
+            -- of preferred filetypes (not languages, unlike `ensure_installed`).
+            pattern = { "*" },
+            callback = function(args)
+                local ft = vim.bo[args.buf].filetype
+                local lang = vim.treesitter.language.get_lang(ft)
 
-            -- Install parsers synchronously (only applied to `ensure_installed`)
-            sync_install = false,
+                if not vim.treesitter.language.add(lang) then
+                    local available = vim.g.ts_available
+                        or require("nvim-treesitter").get_available()
+                    if not vim.g.ts_available then
+                        vim.g.ts_available = available
+                    end
+                    if vim.tbl_contains(available, lang) then
+                        require("nvim-treesitter").install(lang)
+                    end
+                end
 
-            -- Automatically install missing parsers when entering buffer
-            -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-            auto_install = true,
-
-            highlight = {
-                enable = true,
-                -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-                -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-                -- Using this option may slow down your editor, and you may see some duplicate highlights.
-                -- Instead of true it can also be a list of languages
-                additional_vim_regex_highlighting = false,
-            },
-        }
-
-        require 'treesitter-context'.setup {}
+                if vim.treesitter.language.add(lang) then
+                    vim.treesitter.start(args.buf, lang)
+                    -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                    -- vim.wo[0][0].foldmethod = "expr"
+                end
+            end,
+        })
     end,
 }
