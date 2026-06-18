@@ -1,0 +1,19 @@
+nvim/lua/main/init.lua
+  s_1058743673619f::t_2ddea2a851e020 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "31886a9bba8d29436bf487fe5196734582ba015f",
+  "prompts": {},
+  "sessions": {
+    "s_1058743673619f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "72b05df7-38bc-4305-895d-d32d395a9166",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Mykyta Derhunov <mykyta_derhunov@epam.com>"
+    }
+  }
+}
