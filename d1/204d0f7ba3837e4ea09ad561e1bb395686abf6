@@ -1,0 +1,22 @@
+nvim/lua/main/plugins/dap.lua
+  h_32169613a39d35 12-13,15,18-19,21-23,26-33,37-47,50-83,85-88
+nvim/lua/main/plugins/lualine.lua
+  h_32169613a39d35 19
+nvim/lua/main/plugins/neotest.lua
+  h_32169613a39d35 7-19,26-27,31,34-39
+nvim/lua/main/plugins/telescope.lua
+  h_32169613a39d35 3,24-32,35-36
+nvim/lua/main/set.lua
+  h_32169613a39d35 38-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d1204d0f7ba3837e4ea09ad561e1bb395686abf6",
+  "prompts": {},
+  "humans": {
+    "h_32169613a39d35": {
+      "author": "Mykyta Derhunov <mykyta_derhunov@epam.com>"
+    }
+  }
+}
