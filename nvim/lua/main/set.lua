@@ -35,6 +35,8 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.cursorline = true
 
+vim.opt.winborder = "rounded"
+
 vim.api.nvim_create_autocmd(
     { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" },
     {
